@@ -25,6 +25,15 @@ function enterChar(char) {
         indicator.innerHTML = calculateAsBinary(indicator.innerHTML);
         return true;
     }
+    if (OPERATORS.includes(char)) {
+        // Don't allow 2 operators, change the last one
+        let lastChar = indicator.innerHTML.slice(-1);
+        if (OPERATORS.includes(lastChar)) {
+            indicator.innerHTML = indicator.innerHTML.slice(0, -1) + char;
+            console.log('Operator "%s" changed to "%s"', lastChar, char);
+            return;
+        }       
+    }
     // Raw input
     indicator.innerHTML += char;
 }
@@ -67,6 +76,9 @@ function calculateAsBinary(s) {
         }
     }
     
+    // Is valid input?    
+    if (operand1 === '' || operand2 === '' || operator === '') return s;
+
     // Perform evaluation
     operand1 = Math.max(parseInt(operand1, 2), 0);
     operand2 = Math.max(parseInt(operand2, 2), 0);
@@ -79,7 +91,7 @@ function calculateAsBinary(s) {
             result = dec2bin(operand1 - operand2);
             break;
         case '*':
-            result = dec2bin(poperand1 * operand2);
+            result = dec2bin(operand1 * operand2);
             break;
         case '/':
             result = dec2bin(Math.floor(operand1 / operand2))
@@ -87,7 +99,7 @@ function calculateAsBinary(s) {
     }
     
     // Output resut, use recursion if there is "next operations tail"
-    console.log('Result of "%s" operation is: %s, Next operations: %', operator, result, nextOperationsTail);
+    console.log('Result of "%s" operation is: %s, Next operations: %s', operator, result, nextOperationsTail);
     if (nextOperationsTail === '') 
         return result;
     else // Recursion is needed

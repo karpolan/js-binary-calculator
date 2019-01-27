@@ -1,11 +1,12 @@
 body {
-    width: 50%;
+    width: 100%;
+    max-width: 720px;
     margin: auto;
     text-align: center;
 }
 
 #calculator {
-    margin: 36px;
+    margin: 36px 10px;
 }
 
 .indicator {

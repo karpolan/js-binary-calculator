@@ -4,7 +4,6 @@
 /node_modules
 /.pnp
 .pnp.js
-.zip
 
 # testing
 /coverage
@@ -13,6 +12,7 @@
 /build
 
 # misc
+*.zip
 .vscode
 .DS_Store
 .env.local

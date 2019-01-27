@@ -1,0 +1,45 @@
+body {
+    width: 50%;
+    margin: auto;
+    text-align: center;
+}
+
+#calculator {
+    margin: 36px;
+}
+
+.indicator {
+    background-color: lightgray;
+    border: solid 2px black; 
+    height: 48px;
+    font-size: 20px;
+    overflow-wrap: break-word;
+}
+
+.pad .button {
+    width: 25%;
+    height: 36px;
+    font-size: 18px; 
+    margin: 0;
+    float: left;    
+}
+
+.button-number {
+    background-color: lightgreen;
+    color: brown;
+}
+
+.button-result {
+    background-color: darkgreen;
+    color: white;
+}
+
+.button-operation {
+    background-color: black;
+    color: red;
+}
+
+.clear {
+    clear: both;
+}
+
